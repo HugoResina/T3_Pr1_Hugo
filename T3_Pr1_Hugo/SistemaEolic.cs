@@ -8,12 +8,12 @@ namespace T3_Pr1_Hugo
 {
     internal class SistemaEolic : ASistemaEnergia
     {
-        public SistemaEolic(double EnergiaGenerada, string TipusEnergia) : base(EnergiaGenerada, TipusEnergia)
+        public SistemaEolic(double EnergiaGenerada, double ComponentGenerador) : base(EnergiaGenerada, ComponentGenerador)
         {
-
+            
         }
 
-        public override double CalculEnergia()
+        public override double CalculEnergia(double a)
         {
             throw new NotImplementedException();
         }

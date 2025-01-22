@@ -9,11 +9,11 @@ namespace T3_Pr1_Hugo
     public class SistemaSolar : ASistemaEnergia
     {
 
-        public SistemaSolar(double EnergiaGenerada, string TipusEnergia) : base(EnergiaGenerada, TipusEnergia)
+        public SistemaSolar(double EnergiaGenerada, double ComponentGenerador) : base(EnergiaGenerada, ComponentGenerador)
         {
         }
 
-        public override double CalculEnergia()
+        public override double CalculEnergia(double a)
         {
             throw new NotImplementedException();
         }

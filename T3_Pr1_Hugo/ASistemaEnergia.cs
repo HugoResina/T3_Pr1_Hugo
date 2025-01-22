@@ -9,10 +9,10 @@ namespace T3_Pr1_Hugo
     public abstract class ASistemaEnergia : ICalculEnergia
     {
         protected double EnergiaGenerada;
-        protected string TipusEnergia;
+        protected double ComponentGenerador;
 
-        protected ASistemaEnergia(double EnergiaGenerada, string TipusEnergia) { }
-        public abstract double CalculEnergia();
+        protected ASistemaEnergia(double EnergiaGenerada, double ComponentGenerador) { }
+        public abstract double CalculEnergia(double ComponentGenerador);
 
         public abstract void ConfiguracioParametres();
     }

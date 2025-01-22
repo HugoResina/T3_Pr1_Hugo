@@ -8,7 +8,7 @@ namespace T3_Pr1_Hugo
 {
     internal interface ICalculEnergia
     {
-        double CalculEnergia();
+        double CalculEnergia(double ComponentGenerador);
         void ConfiguracioParametres();
     }
 }
