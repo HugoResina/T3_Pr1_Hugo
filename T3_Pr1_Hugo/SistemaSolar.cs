@@ -9,16 +9,16 @@ namespace T3_Pr1_Hugo
     public class SistemaSolar : ASistemaEnergia
     {
 
-        public SistemaSolar(double EnergiaGenerada, double ComponentGenerador) : base(EnergiaGenerada, ComponentGenerador)
+        public SistemaSolar(double ComponentGenerador) 
         {
         }
 
-        public override double CalculEnergia(double a)
+        public override double CalculEnergia(double horesDeSol)
         {
-            throw new NotImplementedException();
+            return horesDeSol * 1.5;
         }
 
-        public override void ConfiguracioParametres()
+        public override double ConfiguracioParametres()
         {
             throw new NotImplementedException();
         }

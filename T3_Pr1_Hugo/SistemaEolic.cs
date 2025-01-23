@@ -8,17 +8,19 @@ namespace T3_Pr1_Hugo
 {
     internal class SistemaEolic : ASistemaEnergia
     {
-        public SistemaEolic(double EnergiaGenerada, double ComponentGenerador) : base(EnergiaGenerada, ComponentGenerador)
+        
+
+        public SistemaEolic(double ComponentGenerador) 
         {
             
         }
 
-        public override double CalculEnergia(double a)
+        public override double CalculEnergia(double velocitatVent)
         {
-            throw new NotImplementedException();
+           return Math.Pow(velocitatVent, 3) * 0.2;
         }
 
-        public override void ConfiguracioParametres()
+        public override double ConfiguracioParametres()
         {
             throw new NotImplementedException();
         }

@@ -8,18 +8,50 @@ namespace T3_Pr1_Hugo
 {
     internal class SistemaHidroelectric : ASistemaEnergia
     {
-        public SistemaHidroelectric(double EnergiaGenerada, double ComponentGenerador) : base(EnergiaGenerada, ComponentGenerador)
+        const double MinComponent = 20d;
+        const string ErrorMsg = "error, el cabdal ha de ser un numero";
+
+        private double ComponentGenerador;
+        public double GetComponentGenerador()
         {
+            return ConfiguracioParametres();
+        }
+        public SistemaHidroelectric( ) 
+        {
+            ComponentGenerador = GetComponentGenerador();
+           
         }
 
-        public override double CalculEnergia(double a)
+        public override double CalculEnergia(double ComponentGenerador)
         {
-            throw new NotImplementedException();
+            return ComponentGenerador * 9.8 * 0.8;
         }
 
-        public override void ConfiguracioParametres()
+        public override double ConfiguracioParametres()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("insereix valor:");
+            double cabdal = 0d;
+            bool valid = false;
+            do
+            {
+                try
+                {
+                    cabdal = double.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine(ErrorMsg, MinComponent);
+                }
+                valid = cabdal >= MinComponent;
+                if(!valid) Console.WriteLine("numero massa petit");
+            } while (!valid);
+            return cabdal;
+
+        }
+        public override string ToString()
+        {
+            string output = string.Format("+--------{0}---------+",Math.Round(CalculEnergia(ComponentGenerador),2));
+            return output;
         }
     }
 }
