@@ -10,8 +10,13 @@ namespace T3_Pr1_Hugo
     {
         const double MinComponent = 20d;
         const string ErrorMsg = "error, el cabdal ha de ser un numero";
+        const string InputMsg = "insereix valor:";
+        const string TooSmallMsg = "numero massa petit";
+
 
         private double ComponentGenerador;
+        public DateTime dataCreacio;
+        
         public double GetComponentGenerador()
         {
             return ConfiguracioParametres();
@@ -19,6 +24,7 @@ namespace T3_Pr1_Hugo
         public SistemaHidroelectric( ) 
         {
             ComponentGenerador = GetComponentGenerador();
+            dataCreacio = DateTime.Now;
            
         }
 
@@ -29,7 +35,7 @@ namespace T3_Pr1_Hugo
 
         public override double ConfiguracioParametres()
         {
-            Console.WriteLine("insereix valor:");
+            Console.WriteLine(InputMsg);
             double cabdal = 0d;
             bool valid = false;
             do
@@ -43,7 +49,7 @@ namespace T3_Pr1_Hugo
                     Console.WriteLine(ErrorMsg, MinComponent);
                 }
                 valid = cabdal >= MinComponent;
-                if(!valid) Console.WriteLine("numero massa petit");
+                if(!valid) Console.WriteLine(TooSmallMsg);
             } while (!valid);
             return cabdal;
 

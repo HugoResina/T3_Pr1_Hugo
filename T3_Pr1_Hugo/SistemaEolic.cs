@@ -6,13 +6,26 @@ using System.Threading.Tasks;
 
 namespace T3_Pr1_Hugo
 {
-    internal class SistemaEolic : ASistemaEnergia
-    {
-        
 
-        public SistemaEolic(double ComponentGenerador) 
+    public class SistemaEolic : ASistemaEnergia
+    {
+        const double MinComponent = 5d;
+        const string ErrorMsg = "error, la velocitat del vent ha de ser un numero";
+        const string InputMsg = "insereix valor:";
+        const string TooSmallMsg = "numero massa petit";
+
+        private double ComponentGenerador;
+        public DateTime dataCreacio;
+
+        public double GetComponentGenerador()
         {
-            
+            return ConfiguracioParametres();
+        }
+
+        public SistemaEolic() 
+        {
+            ComponentGenerador = GetComponentGenerador();
+            dataCreacio = DateTime.Now;
         }
 
         public override double CalculEnergia(double velocitatVent)
@@ -22,7 +35,23 @@ namespace T3_Pr1_Hugo
 
         public override double ConfiguracioParametres()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(InputMsg);
+            double velocitat = 0d;
+            bool valid = false;
+            do
+            {
+                try
+                {
+                    velocitat = double.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine(ErrorMsg, MinComponent);
+                }
+                valid = velocitat >= MinComponent;
+                if (!valid) Console.WriteLine(TooSmallMsg);
+            } while (!valid);
+            return velocitat;
         }
     }
 }
