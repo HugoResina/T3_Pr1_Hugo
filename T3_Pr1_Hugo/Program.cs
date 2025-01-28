@@ -5,7 +5,7 @@ public class MyProgram
     public static void Main()
     {
         SistemaHidroelectric sistem = new SistemaHidroelectric();
-        Console.WriteLine(sistem.ToString());
+        Console.WriteLine(sistem.dataCreacio);
        
     }
 }
