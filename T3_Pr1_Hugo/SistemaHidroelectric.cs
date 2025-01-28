@@ -10,13 +10,13 @@ namespace T3_Pr1_Hugo
     {
         const double MinComponent = 20d;
         const string ErrorMsg = "error, el cabdal ha de ser un numero";
-        const string InputMsg = "insereix valor:";
+        const string InputMsg = "insereix valor del cabdal:";
         const string TooSmallMsg = "numero massa petit";
 
 
         private double ComponentGenerador;
-        public DateTime dataCreacio;
-        
+        public DateTime DataCreacio;
+        public string tipus;
         public double GetComponentGenerador()
         {
             return ConfiguracioParametres();
@@ -24,7 +24,8 @@ namespace T3_Pr1_Hugo
         public SistemaHidroelectric( ) 
         {
             ComponentGenerador = GetComponentGenerador();
-            dataCreacio = DateTime.Now;
+            DataCreacio = DateTime.Today;
+            tipus = "Hidroelectric";
            
         }
 
@@ -56,8 +57,7 @@ namespace T3_Pr1_Hugo
         }
         public override string ToString()
         {
-            string output = string.Format("+--------{0}---------+",Math.Round(CalculEnergia(ComponentGenerador),2));
-            return output;
+            return $"{tipus,-20} {DataCreacio:dd/MM/yyyy,-20} {Math.Round(CalculEnergia(ComponentGenerador), 2),+11}";
         }
     }
 }

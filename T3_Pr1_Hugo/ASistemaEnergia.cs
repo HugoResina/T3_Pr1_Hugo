@@ -10,7 +10,8 @@ namespace T3_Pr1_Hugo
     {
         
         protected double ComponentGenerador;
-        protected DateTime DataCreacio;
+        public DateTime DataCreacio;
+        public string tipus;
 
         
         public abstract double CalculEnergia(double ComponentGenerador);

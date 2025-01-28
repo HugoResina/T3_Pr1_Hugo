@@ -10,11 +10,12 @@ namespace T3_Pr1_Hugo
     {
         const double MinComponent = 1d;
         const string ErrorMsg = "error, les hores de sol han de ser un numero";
-        const string InputMsg = "insereix valor:";
+        const string InputMsg = "insereix valor de les hores de sol:";
         const string TooSmallMsg = "numero massa petit";
 
         private double ComponentGenerador;
-        public DateTime dataCreacio;
+        public DateTime DataCreacio;
+        public string tipus;
 
         public double GetComponentGenerador()
         {
@@ -23,7 +24,8 @@ namespace T3_Pr1_Hugo
         public SistemaSolar() 
         {
             ComponentGenerador = GetComponentGenerador();
-            dataCreacio = DateTime.Now;
+            DataCreacio = DateTime.Today;
+            tipus = "Solar";
         }
 
         public override double CalculEnergia(double horesDeSol)
@@ -50,6 +52,10 @@ namespace T3_Pr1_Hugo
                 if (!valid) Console.WriteLine(TooSmallMsg);
             } while (!valid);
             return hores;
+        }
+        public override string ToString()
+        {
+            return $"{tipus,-20} {DataCreacio:dd/MM/yyyy,-20} {Math.Round(CalculEnergia(ComponentGenerador), 2),+11}";
         }
     }
 }
