@@ -14,7 +14,6 @@ public class MyProgram
     {
         int menuSelecter = 0;
 
-       
         do
         {
             
@@ -78,15 +77,11 @@ public class MyProgram
             
             foreach (var sistem in simulations)
             {
-
-
-                
                 Console.WriteLine(sistem.ToString());
             }
             Console.WriteLine(new string('-', 60)); 
 
         }
-
 
     }
 

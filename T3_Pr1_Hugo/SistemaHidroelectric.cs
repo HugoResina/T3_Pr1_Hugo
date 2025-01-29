@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace T3_Pr1_Hugo
 {
-    internal class SistemaHidroelectric : ASistemaEnergia
+    public class SistemaHidroelectric : ASistemaEnergia
     {
         const double MinComponent = 20d;
         const string ErrorMsg = "error, el cabdal ha de ser un numero";
